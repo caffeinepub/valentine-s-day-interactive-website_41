@@ -1,0 +1,250 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Valentine’s Day themed React + Tailwind single-page web app. It starts with a playful “Will you be my Valentine?” proposal screen featuring an evasive “No” button and an acceptance celebration sequence (confetti + animated visuals) before transitioning to an interactive “surprises hub”. The hub is being revised to remove the “For You” (love letter) experience, keeping only the photo gallery and gift reveal; the love letter message will be displayed in the Gift modal with a romantic font and structured layout. The frontend content remains static (served from /assets), while the repository also includes ICP/DFINITY scaffolding: an Internet Identity authentication context, a React Query-based identity-aware actor hook, and Motoko canisters (a main canister with trap-only stub endpoints plus a blob-storage operational mixin for maintenance tasks).",
+  "existing_features": [
+    {
+      "id": "IF-1",
+      "title": "App bootstrap with React Query and Internet Identity providers",
+      "synonyms": [
+        "main.tsx bootstrapping",
+        "QueryClientProvider + InternetIdentityProvider"
+      ],
+      "description": "The app is mounted via ReactDOM.createRoot and wrapped with QueryClientProvider and InternetIdentityProvider to enable React Query caching and Internet Identity authentication context across the component tree.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-2",
+      "title": "Local page-state routing with Home page reset on return",
+      "synonyms": [
+        "home/interactive routing",
+        "page-state navigation"
+      ],
+      "description": "App.tsx switches between HomePage and InteractivePage using local state and forces a HomePage remount via a key increment when returning home to reset proposal UI state.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-3",
+      "title": "Valentine proposal landing page UI",
+      "synonyms": [
+        "Will you be my Valentine screen",
+        "proposal page"
+      ],
+      "description": "HomePage renders a Valentine-themed gradient background, recipient name, a themed image, and the core “Will you be my Valentine?” prompt with prominent Yes/No actions.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-4",
+      "title": "Continuously evasive “No” button (mouse + touch + focus + proximity)",
+      "synonyms": [
+        "dodging No button",
+        "un-clickable No button"
+      ],
+      "description": "The “No” button moves to random safe positions based on viewport bounds and button dimensions when hovered/pressed/touched/focused/clicked; after movement starts, it also evades when the pointer comes within ~150px using a window pointermove listener.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-5",
+      "title": "Acceptance celebration sequence with confetti and delayed transition",
+      "synonyms": [
+        "OMG you said yes celebration",
+        "acceptance flow"
+      ],
+      "description": "Clicking “Yes” triggers a celebration state with a large acceptance message, animated hearts, a dancing sticker image, a confetti effect, and an automatic transition to the interactive hub after ~2.5 seconds.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-6",
+      "title": "Animated floating hearts ambient background",
+      "synonyms": [
+        "FloatingHearts",
+        "ambient hearts"
+      ],
+      "description": "FloatingHearts generates a fixed set of randomized heart icons that float upward with randomized positions, delays, durations, and sizes to create a romantic ambient background.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-7",
+      "title": "Interactive surprises hub with three selectable experiences",
+      "synonyms": [
+        "InteractivePage",
+        "surprises menu"
+      ],
+      "description": "InteractivePage displays three animated icon cards (Gallery, For You, A Gift for You) that open their respective modal experiences.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-8",
+      "title": "Back-to-home navigation from interactive hub",
+      "synonyms": [
+        "return to proposal",
+        "Back to Home button"
+      ],
+      "description": "InteractivePage includes a top-left “Back to Home” button that returns the user to the proposal screen via the provided callback.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-9",
+      "title": "Photo gallery modal with captions, hover effects, and simplified footer",
+      "synonyms": [
+        "GalleryModal",
+        "memories modal"
+      ],
+      "description": "GalleryModal shows a static photo list from /assets with romantic captions, hover scale/glow effects, staggered fade-in-up animations, and a footer that displays only the bold compliment line “💕 You're absolutely stunning, Flora 💕”.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "IF-10",
+      "title": "Love letter modal with scrollable personalized message",
+      "synonyms": [
+        "LetterModal",
+        "For You modal"
+      ],
+      "description": "LetterModal presents a scrollable letter container with themed styling and the exact personalized message: “my dearest valentine, roses are red violets are blue, my naughty thoughts involve me and you 😏😈”.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "IF-11",
+      "title": "Gift reveal modal with delayed reveal animation",
+      "synonyms": [
+        "GiftModal",
+        "Special Gift modal"
+      ],
+      "description": "GiftModal simulates opening a gift (brief loading state) then reveals a bouquet image from /assets/generated with sparkles, themed messages, and animated emoji accents, including Back and Close actions.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-12",
+      "title": "Valentine theme system and custom animations",
+      "synonyms": [
+        "theming",
+        "custom CSS animations"
+      ],
+      "description": "frontend/src/index.css defines an OKLCH-based Valentine palette via CSS variables and provides custom utilities and keyframe animations (float-up, fade-in-up, heart-beat, confetti-fall, dance-celebration) used throughout the UI.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-13",
+      "title": "Internet Identity authentication provider (frontend scaffolding)",
+      "synonyms": [
+        "InternetIdentityProvider",
+        "II auth context"
+      ],
+      "description": "A React Context provider initializes @dfinity/auth-client, restores stored sessions on mount, and exposes login/logout, identity state, and detailed status flags through useInternetIdentity.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-14",
+      "title": "Identity-aware backend actor creation hook with caching (frontend scaffolding)",
+      "synonyms": [
+        "useActor",
+        "React Query actor hook"
+      ],
+      "description": "useActor creates and caches an anonymous or identity-bound canister actor keyed by principal via React Query, and invalidates/refetches other queries when the actor changes.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-15",
+      "title": "Main backend canister stub APIs for future dynamic content",
+      "synonyms": [
+        "trap-only content endpoints",
+        "placeholder backend API"
+      ],
+      "description": "backend/main.mo defines shared methods for updating the letter, uploading photos, and adding gifts, but each currently traps with a placeholder message.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "IF-16",
+      "title": "Blob-storage operational mixin endpoints (backend)",
+      "synonyms": [
+        "storage maintenance endpoints",
+        "cycles refill and pruning"
+      ],
+      "description": "Motoko blob-storage mixin provides endpoints for cashier-authorized cycles refill, syncing authorized gateway principals from a cashier canister, querying dead blobs (authorized), confirming deletion and triggering GC, plus a simple certificate creation response stub.",
+      "reqIds": [],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-for-you-letter-experience-from-the-interactive-surprises-hub-ui-so-only-gallery-and-a-gift-for-you-remain-selectable",
+      "title": "Remove the “For You” (Letter) experience from the interactive surprises hub UI so only “Gallery” and “A Gift for You” remain selectable.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-move-the-existing-love-letter-message-content-currently-shown-in-the-letter-modal-into-the-gift-modal-replacing-the-current-gift-text-content-while-keeping-the-roses-bouquet-visual",
+      "title": "Move the existing love-letter message content currently shown in the Letter modal into the Gift modal, replacing the current gift text content while keeping the roses bouquet visual.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-gift-modal-typography-and-layout-to-use-a-clearly-romantic-font-style-and-structured-formatting-e-g-letter-style-layout-with-greeting-body-sign-off-styling-for-the-moved-message",
+      "title": "Update the Gift modal typography and layout to use a clearly romantic font style and structured formatting (e.g., letter-style layout with greeting/body/sign-off styling) for the moved message.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Remove the “For You”/Letter experience (icon + modal) from the interactive hub, leaving only Gallery and Gift.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Move the existing love-letter message text into the Gift modal, replacing the current gift text, and present it with a romantic font and structured formatting.",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "architectural_notes": [
+    "React SPA uses local component state for page routing (home vs interactive) rather than URL-based routing.",
+    "UI composed from shadcn-style primitives (Dialog, Button, ScrollArea) and iconography via lucide-react.",
+    "Tailwind CSS uses OKLCH CSS variables for theming plus custom keyframe animations for hearts, fades, confetti, and celebration effects.",
+    "Modal experiences are separated into dedicated components (GalleryModal, LetterModal, GiftModal) and coordinated by a single discriminated activeModal state in InteractivePage.",
+    "React Query is configured globally (QueryClientProvider) and used for identity-aware backend actor creation/caching.",
+    "Internet Identity integration is encapsulated as a React Context provider wrapping @dfinity/auth-client, including session restore and login/logout flows.",
+    "Motoko backend is split into a stub main actor (feature endpoints trap) and a blob-storage mixin exposing operational/maintenance endpoints.",
+    "Interactive hub is updated to use only two experiences (Gallery and Gift); the Letter modal/entry is removed and its message content is rendered within the Gift modal with styled typography."
+  ],
+  "known_issues": [
+    "backend/main.mo endpoints (updateLetter, uploadPhoto, addGift) are trap-only stubs, so no real end-to-end dynamic content updates exist.",
+    "frontend/src/hooks/useQueries.ts intentionally exports nothing; there are no real data-fetching hooks (app is effectively static content).",
+    "frontend/src/components/AudioPlayer.tsx is empty (placeholder), despite other scaffolding implying richer functionality may be planned.",
+    "Two Tailwind entry CSS files exist (frontend/index.css and frontend/src/index.css); main.tsx imports src/index.css, so the root-level CSS is likely redundant and may confuse maintenance.",
+    "HomePage confetti effect appends/removes DOM nodes directly on document.body outside React, which can complicate testing and lifecycle reasoning.",
+    "blob-storage/Storage.mo uses Nat.sub(currentBalance, reservedCycles); if balance < reservedCycles, Nat underflow can trap.",
+    "blob-storage/Mixin.mo keeps authorized gateway principals in transient state, meaning the allowlist is not stable across upgrades/restarts and may require refresh.",
+    "blob-storage endpoint _caffeineStorageUpdateGatewayPrincipals has no caller authorization check, allowing any caller to trigger the refresh attempt."
+  ],
+  "isFixRequest": false,
+  "gameProjectType": "none",
+  "projectName": "Valentine's Day Interactive Website",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

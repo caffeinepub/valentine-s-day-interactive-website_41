@@ -1,0 +1,13 @@
+{
+  "frontend/src/App.tsx": "Main application component managing page state between HomePage and InteractivePage with a key-based remount mechanism to reset HomePage state when returning from InteractivePage.",
+  "frontend/src/pages/HomePage.tsx": "Valentine's Day proposal page with continuous evasive \"No\" button that moves away on pointer proximity (within 150px) and interaction attempts, celebration screen with prominent Drake dancing sticker animation, and confetti effects.",
+  "frontend/src/pages/InteractivePage.tsx": "Interactive hub page displaying two clickable icon cards for Gallery and A Gift for You modals with a 2-column layout, and a \"Back to Home\" button in the top-left corner to return to the proposal page.",
+  "frontend/src/components/FloatingHearts.tsx": "Reusable component that renders animated floating hearts across the screen background for romantic ambiance.",
+  "frontend/src/components/GalleryModal.tsx": "Modal dialog for the photo gallery feature titled \"Gallery\" displaying three uploaded personal photos with romantic soft glow effects, sweet complimentary captions, and a simplified footer showing only the bold compliment line \"💕 You're absolutely stunning, Flora 💕\".",
+  "frontend/src/components/LetterModal.tsx": "Modal dialog titled \"For You\" displaying a romantic love letter with scrollable content containing the personalized Valentine's message: \"my dearest valentine, roses are red violets are blue, my naughty thoughts involve me and you 😏😈\".",
+  "frontend/src/components/GiftModal.tsx": "Modal dialog that reveals an animated roses bouquet image with the romantic love letter message presented in a structured letter format using romantic typography (Dancing Script font), sparkle effects, vertical scrolling capability, and a \"Back\" button to return to the interactive page.",
+  "frontend/src/hooks/useQueries.ts": "Minimal hooks file as no backend data fetching is required for this frontend-only Valentine's application.",
+  "frontend/src/index.css": "Complete stylesheet with Valentine's Day themed OKLCH color system, custom animations, romantic letter component styles, and Google Fonts import for Dancing Script font family.",
+  "frontend/src/components/AudioPlayer.tsx": "Fixed-position audio player component that automatically plays a looping romantic instrumental track with play/pause and mute controls, positioned in the bottom-right corner.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with romantic font family (Dancing Script, cursive) for letter-style typography in the Gift modal."
+}

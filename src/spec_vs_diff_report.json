@@ -1,0 +1,26 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-05T08:49:17.869Z",
+  "summary": "Diff updates InteractivePage to show only Gallery and Gift cards in a 2-column grid and removes LetterModal usage there. GiftModal is reworked to display the love-letter style message with romantic typography and structured letter formatting while preserving the roses bouquet image; Tailwind/CSS are extended to support a romantic font and letter styling.",
+  "missing_requirements": [],
+  "hallucinated_features": [
+    {
+      "description": "Gift modal appears to add an explicit “Back” UI control (ArrowLeft/Button) beyond the requested typography/content move.",
+      "reason": "BuildRequest only requested removing the Letter experience and moving/styling the letter content within the Gift modal; it did not request adding additional navigation controls inside the Gift modal.",
+      "evidence": [
+        "frontend/src/components/GiftModal.tsx (imports ArrowLeft and Button; file summary mentions a \"Back\" button)"
+      ]
+    }
+  ],
+  "confidence": 0.66,
+  "changed_files": [
+    "frontend-file-summaries.txt",
+    "frontend/src/components/GiftModal.tsx",
+    "frontend/src/components/LetterModal.tsx",
+    "frontend/src/index.css",
+    "frontend/src/pages/InteractivePage.tsx",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Remove Letter experience and present love-letter message inside Gift modal with romantic typography",
+  "requirements": [
+    {
+      "id": "REQ-7",
+      "summary": "Remove the “For You”/Letter experience from the interactive hub so only Gallery and Gift remain, and adjust the layout for two cards.",
+      "acceptanceCriteria": [
+        "The InteractivePage no longer renders the “For You”/Letter icon card.",
+        "The InteractivePage layout updates appropriately for two cards (e.g., uses a 2-column layout at md+ instead of a 3-column layout).",
+        "The app no longer imports or opens LetterModal from the interactive hub."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/InteractivePage.tsx",
+          "operation": "modify",
+          "description": "Remove the Letter option from the iconCards list and associated modal state type; drop the LetterModal import/rendering; update the grid from md:grid-cols-3 to md:grid-cols-2 so the hub presents exactly two selectable cards (Gallery and A Gift for You). Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Move the love-letter message content into the Gift modal, replacing the current gift text while preserving the roses bouquet visual.",
+      "acceptanceCriteria": [
+        "The Gift modal no longer displays the current rose color meaning paragraphs and the quote block; instead it displays the prior LetterModal message content.",
+        "The roses bouquet image remains visible in the Gift modal (the roses experience is preserved).",
+        "The Letter modal content is not accessible anywhere in the UI after removing the Letter experience."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/GiftModal.tsx",
+          "operation": "modify",
+          "description": "Replace the existing rose color meaning paragraphs and quote block with the prior LetterModal message content, keeping the roses bouquet image visible and retaining the existing gift reveal/loading behavior. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/LetterModal.tsx",
+          "operation": "delete",
+          "description": "Remove the LetterModal component file so the letter content is not accessible anywhere in the UI after the Letter experience is removed. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Apply romantic typography and structured, letter-like formatting to the moved message in the Gift modal.",
+      "acceptanceCriteria": [
+        "The moved message in the Gift modal is visually presented in a letter-like structured format (not a single plain paragraph).",
+        "The message text uses a romantic-looking typographic treatment (e.g., cursive/serif styling via Tailwind/CSS) that is consistent within the Gift modal."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme typography options to include a romantic-looking font family (e.g., a serif/cursive-style stack) that can be applied consistently within the Gift modal. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add a small set of global utility classes (within existing Tailwind layers) to support letter-like presentation in the Gift modal (e.g., romantic font utility + subtle letter styling like leading/spacing) without modifying any shadcn ui component files. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/GiftModal.tsx",
+          "operation": "modify",
+          "description": "Restructure the moved message into a letter-style layout (greeting, body, sign-off) and apply the romantic typography utilities/Tailwind classes consistently across the message block while keeping the roses bouquet visual intact. Verify the component's usage instructions before implementing."
+        }
+      ]
+    }
+  ]
+}

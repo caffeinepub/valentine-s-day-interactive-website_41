@@ -1,0 +1,22 @@
+{
+  "backend/main.mo": "Actor with stubbed methods for updating letter content, uploading photos, and adding gifts, each trapping with placeholder messages.",
+  "feature_evidence.json": "Feature evidence report listing implemented features, associated files, components, test IDs, and confidence levels.",
+  "frontend-file-summaries.txt": "Prewritten summaries describing all major frontend files and their roles in the Valentine's interactive app.",
+  "frontend/index.css": "Tailwind base stylesheet defining theme variables, dark mode values, and global styling utilities for the app.",
+  "frontend/index.html": "Basic HTML entry point providing a root div and loading the React app via main.tsx.",
+  "frontend/src/App.tsx": "Main router component switching between HomePage and InteractivePage with forced remounting of the HomePage on return.",
+  "frontend/src/components/AudioPlayer.tsx": "Empty placeholder file for an audio player component.",
+  "frontend/src/components/FloatingHearts.tsx": "Component generating floating animated heart elements with randomized positions and timings.",
+  "frontend/src/components/GalleryModal.tsx": "Modal displaying a themed gallery of three photos with captions, glow effects, and a styled close button.",
+  "frontend/src/components/GiftModal.tsx": "Gift modal showing an animated bouquet image and structured romantic letter with delayed reveal and scrollable content.",
+  "frontend/src/components/LetterModal.tsx": "Empty placeholder for the Letter modal component.",
+  "frontend/src/hooks/useActor.ts": "Hook creating and caching a backend actor using Internet Identity, refreshing dependent queries when identity changes.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Provides a React context and provider for Internet Identity authentication, managing login state, stored identities, and AuthClient setup.",
+  "frontend/src/hooks/useQueries.ts": "Empty placeholder file exporting nothing for frontend-only app with no backend queries.",
+  "frontend/src/index.css": "Defines Tailwind layers, Valentine-themed color variables, dark mode variants, and custom utility/component styles.",
+  "frontend/src/main.tsx": "Bootstraps the React app, wrapping it with QueryClientProvider and InternetIdentityProvider.",
+  "frontend/src/pages/HomePage.tsx": "Renders the playful home page with moving 'No' button logic, celebration effects, and acceptance flow.",
+  "frontend/src/pages/InteractivePage.tsx": "Displays interactive Valentine-themed cards that open modals for gallery and gifts, with navigation back to home.",
+  "frontend/tailwind.config.js": "Tailwind configuration extending fonts, colors, components, animations, and enabling plugins like typography and container queries.",
+  "project_state.json": "Defines the project’s current schema, version, and a detailed description of the Valentine-themed React/Tailwind app plus ICP scaffolding. Lists existing features with IDs, titles, synonyms, and short functional descriptions for build planning."
+}

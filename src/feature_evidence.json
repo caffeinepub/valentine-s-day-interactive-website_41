@@ -1,0 +1,65 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-remove-the-for-you-letter-experience-from-the-interactive-surprises-hub-ui-so-only-gallery-and-a-gift-for-you-remain-selectable",
+      "featureTitle": "Remove the “For You” (Letter) experience from the interactive surprises hub UI so only “Gallery” and “A Gift for You” remain selectable.",
+      "files": [
+        "frontend/src/pages/InteractivePage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "blob-storage@4.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-move-the-existing-love-letter-message-content-currently-shown-in-the-letter-modal-into-the-gift-modal-replacing-the-current-gift-text-content-while-keeping-the-roses-bouquet-visual",
+      "featureTitle": "Move the existing love-letter message content currently shown in the Letter modal into the Gift modal, replacing the current gift text content while keeping the roses bouquet visual.",
+      "files": [
+        "frontend/src/components/GiftModal.tsx",
+        "frontend/src/components/LetterModal.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "blob-storage@4.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-the-gift-modal-typography-and-layout-to-use-a-clearly-romantic-font-style-and-structured-formatting-e-g-letter-style-layout-with-greeting-body-sign-off-styling-for-the-moved-message",
+      "featureTitle": "Update the Gift modal typography and layout to use a clearly romantic font style and structured formatting (e.g., letter-style layout with greeting/body/sign-off styling) for the moved message.",
+      "files": [
+        "frontend/src/components/GiftModal.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "blob-storage@4.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

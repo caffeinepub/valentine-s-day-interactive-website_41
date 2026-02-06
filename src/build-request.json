@@ -1,0 +1,74 @@
+{
+  "kind": "build_request",
+  "title": "Remove Letter/“For You” experience and move love-letter message into Gift modal with romantic typography",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-7",
+      "text": "Remove the “For You” (Letter) experience from the interactive surprises hub UI so only “Gallery” and “A Gift for You” remain selectable.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "let’s get rid of the letter, the for you and keep the gallery and the roses"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The InteractivePage no longer renders the “For You”/Letter icon card.",
+        "The InteractivePage layout updates appropriately for two cards (e.g., uses a 2-column layout at md+ instead of a 3-column layout).",
+        "The app no longer imports or opens LetterModal from the interactive hub."
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Move the existing love-letter message content currently shown in the Letter modal into the Gift modal, replacing the current gift text content while keeping the roses bouquet visual.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "move the message from the letter to the Gift and replace the text there"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The Gift modal no longer displays the current rose color meaning paragraphs and the quote block; instead it displays the prior LetterModal message content.",
+        "The roses bouquet image remains visible in the Gift modal (the roses experience is preserved).",
+        "The Letter modal content is not accessible anywhere in the UI after removing the Letter experience."
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Update the Gift modal typography and layout to use a clearly romantic font style and structured formatting (e.g., letter-style layout with greeting/body/sign-off styling) for the moved message.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "use a nice romantic font and structure"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The moved message in the Gift modal is visually presented in a letter-like structured format (not a single plain paragraph).",
+        "The message text uses a romantic-looking typographic treatment (e.g., cursive/serif styling via Tailwind/CSS) that is consistent within the Gift modal."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not edit files under frontend/src/components/ui (compose existing shadcn components only).",
+    "Do not modify frontend/src/hooks/useInternetIdentity.ts(x), frontend/src/hooks/useActor.ts, or frontend/src/main.tsx (immutable paths).",
+    "Keep the backend as-is; no new backend APIs are required for this change."
+  ],
+  "nonGoals": [
+    "Do not add new interactive hub experiences beyond Gallery and Gift.",
+    "Do not introduce dynamic content fetching/storage for the letter or gift content (keep static frontend content).",
+    "Do not change the gallery photos unless explicitly requested."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}
